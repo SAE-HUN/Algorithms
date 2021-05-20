@@ -8,7 +8,7 @@ for i in range(n):
     color, size = map(int, input().split())
     players.append((i, color, size))
 
-players.sort(key=lambda x: (x[2], x[1]))
+players.sort(key=lambda x: x[2])
 answer = [0]*n
 acc = 0
 color_acc = [0]*(n+1)
@@ -26,5 +26,4 @@ for i in range(n):
     
     answer[a[0]] = acc - color_acc[a[1]]
 
-for a in answer:
-    print(a)
+print(*answer, sep='\n')
