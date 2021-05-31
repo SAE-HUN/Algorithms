@@ -1,6 +1,6 @@
 n, m = map(int, input().split())
 lessons = list(map(int, input().split()))
-a = min(lessons)
+a = max(lessons)
 
 l = 0
 r = 10**4 * 10**5
@@ -10,15 +10,14 @@ while l<=r:
     cnt = 1
     tmp = 0
     
+    if mid<a:
+        l = mid+1
+        continue
+    
     for i in range(n):
-        if lessons[i]>mid:
-            cnt = m+1
-            break
-        
         if tmp+lessons[i]>mid:
-            tmp = lessons[i]
+            tmp = 0
             cnt += 1
-            continue
         
         tmp += lessons[i]
     
